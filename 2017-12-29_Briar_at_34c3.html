@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Briar - Resilient P2P Messaging for Everyone</title>
+
+		<meta name="description" content="Resilient P2P Messaging for Everyone (34c3 presentation)">
+		<meta name="author" content="Torsten Grote">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Start Slides -->
+
+				<section data-background-image="images/logo-briar-34C3.svg" data-background-size="contain"></section>
+
+				<section data-background-image="images/logo-briar.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						* Communication Tool
+						* Developed since 2012
+					</aside>
+				</section>
+
+				<!-- Security & Resilience -->
+				<section style="font-size: 114pt;">
+						Security<br/>
+						&<br/>
+						Resilience
+				</section>
+
+				<!-- Eavesdropping -->
+				<section data-background-image="images/eavesdropping.jpg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+					Eavesdropping
+					* They read our stuff and we want confidentiality
+					</aside>
+				</section>
+
+				<!-- End-to-End Encryption -->
+				<section style="font-size: 65pt;">
+					End-to-End Encryption
+					<img data-src="images/encryption_end_to_end.svg" class="stretch"/>
+				</section>
+
+				<!-- Non e2e Messengers -->
+				<section>
+					<img data-src="images/logo-google-allo.png" width="300" height="300"/>
+					<div class="spread">
+						<img data-src="images/logo-telegram.svg" width="300" height="300"/>
+						<img data-src="images/logo-facebook-messenger.svg" width="300" height="300"/>
+					</div>
+
+					<aside class="notes" data-markdown>
+						Still needs more adoption!
+
+						I am looking at you
+						* Allo
+						* Telegram
+						* Facebook Messenger
+					</aside>
+				</section>
+
+				<!-- Metadata 1 -->
+				<section style="font-size: 65pt;">
+					Metadata
+					<img data-src="images/metadata-graph.png" class="stretch"/>
+
+					<aside class="notes" data-markdown>
+						They analyze our social patterns, we want anonymity
+
+						Largely ignored problem
+					</aside>
+				</section>
+
+				<!-- Metadata 2 -->
+				<section>
+					<img data-src="images/metadata-hayden.jpg" class="stretch"/>
+					<blockquote>
+						"We kill people based on metadata"
+					</blockquote>
+					<span style="font-size: 23pt; float: right; text-align: left;">
+						Michael Hayden<br/>
+						former CIA and NSA director
+					</span>
+				</section>
+
+				<!-- Metadata Messengers -->
+				<section>
+					<img data-src="images/logo-whatsapp.svg" width="300" height="300"/>
+					<div class="spread">
+						<img data-src="images/logo-telegram.svg" width="300" height="300"/>
+						<img data-src="images/logo-signal.png" width="300" height="300"/>
+					</div>
+
+					<aside class="notes" data-markdown>
+						Phone numbers as identifies centrally stored
+
+						→ Juciy Target
+
+						Timing Attacks
+					</aside>
+				</section>
+
+				<!-- Censorship and Service Blocking -->
+				<section data-background-image="images/internet-blocked-china.png" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						Censorship and Service Blocking
+
+						They block our stuff, we want it accessible
+
+						Circumvention only for technical elite
+					</aside>
+				</section>
+				<section data-background-image="images/internet-blocked-turkey.png" data-background-size="contain"></section>
+				<section data-background-image="images/internet-blocked-brazil.png" data-background-size="contain"></section>
+
+				<!-- Internet Shutdowns -->
+				<section data-background-image="images/internet-shutdown-kill-switch.jpg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						Internet Shutdowns - They pull the plug and we cry
+
+						Suppression instrument where reliance on internet is still small
+
+						Total blackout means zero access, zero communication
+					</aside>
+				</section>
+				<section data-background-image="images/internet-shutdown-cameroon.jpg" data-background-size="contain"></section>
+				<section data-background-image="images/internet-shutdown-india.png" data-background-size="contain"></section>
+				<section data-background-image="images/internet-shutdown-catastrophe.jpg" data-background-size="contain"></section>
+				<section data-background-image="images/internet-shutdown-zombies.jpg" data-background-size="contain"></section>
+
+				<!-- Meet Briar -->
+				<section data-background-image="images/logo-briar.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						* How does Briar work?
+						* And how does this address these threats?
+					</aside>
+				</section>
+
+				<!-- P2P -->
+				<section data-background-image="images/architecture-client-server.svg" data-background-size="contain"></section>
+				<section data-background-image="images/architecture-peer-to-peer.svg" data-background-size="contain"></section>
+
+				<!-- Data Transports -->
+				<section>
+					<img data-src="images/logo-bluetooth.svg" width="400" height="400"/>
+					<img data-src="images/logo-wifi.svg" width="400" height="400"/>
+				</section>
+				<section data-background-image="images/data-transport-satellite.jpg" data-background-size="contain"></section>
+				<section data-background-image="images/data-transport-ham-radio.jpg" data-background-size="contain"></section>
+				<section data-background-image="images/data-transport-pigeon.jpg" data-background-size="contain"></section>
+
+				<!-- End-to-End Encryption -->
+				<section data-background-image="images/architecture-peer-to-peer-briar.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						* Authenticated Stream Cipher with 256 bit keys
+						* Forward Secrecy (periodic key rotation due to delay tolerance, ratcheting planned)
+						* [Bramble Transport Protocol](https://code.briarproject.org/akwizgran/briar-spec/blob/master/protocols/BTP.md) (BTP)
+						* How to exchange shared secret?
+					</aside>
+				</section>
+
+				<!-- Briar Key Exchange -->
+				<section data-background-image="images/briar-qr-code.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						* meeting in person and scanning QR codes as initial key exchange
+						* prevents MITM attacks (also a threat)
+						* trusted peer can introduce two contacts
+						* future: Scanning codes or entering tokens remotely
+						* [Bramble QR Code Protocol](https://code.briarproject.org/akwizgran/briar-spec/blob/master/protocols/BQP.md) (BQP)
+					</aside>
+				</section>
+
+				<!-- Cryptographic Algorithms -->
+				<section style="font-size: 32pt;">
+					<p style="font-size: 52pt;">
+						Cryptographic Algorithms
+					</p>
+					<div style="text-align:left; font-size: 24pt;">
+						Authenticated Encryption:
+					</div>
+					<p>XSalsa20/Poly1305</p>
+					<div style="text-align:left; font-size: 24pt;">
+						Hash and MAC:
+					</div>
+					<p>BLAKE2s &rarr; BLAKE2b</p>
+					<div style="text-align:left; font-size: 24pt;">
+						Signatures:
+					</div>
+					<p>ECDSA w/ brainpoolP256r1 &rarr; Ed25519</p>
+					<div style="text-align:left; font-size: 24pt;">
+						Key Agreement:
+					</div>
+					<p>ECDHC w/ brainpoolP256r1 &rarr; Curve25519</p>
+				</section>
+
+				<!-- Tor -->
+				<section data-background-image="images/internet-can-i-haz.jpg" data-background-size="contain"></section>
+				<section data-background-image="images/logo-tor.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+					* connection between peers consists of 6 Tor relays (3 picked by each peer)
+					* hides metadata even from network observers (maybe not NSA)
+					* still room for improvements (e.g. timing attacks)
+					</aside>
+				</section>
+				<section data-background-image="images/graph-tor.svg" data-background-size="contain"></section>
+
+				<!-- Message Synchronisation -->
+				<section data-background-image="images/briar-groups-messages.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						Groups (Channels) and Messages
+					</aside>
+				</section>
+				<section data-background-image="images/briar-forums.svg" data-background-size="contain"></section>
+				<section data-background-image="images/graph-p2p-sharing.svg" data-background-size="contain"></section>
+				<section data-background-image="images/graph-p2p-sharing-partition.svg" data-background-size="contain"></section>
+
+				<!-- Architecture -->
+				<section data-background-image="images/briar-architecture-simple.png" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						* grey parts not yet implemented
+					</aside>
+				</section>
+				<section data-background-image="images/decentralize-all-the-things.jpg" data-background-size="contain"></section>
+
+				<!- Try it now! -->
+				<section>
+					<p>
+						<a href="https://briarproject.org" style="color: white;">briarproject.org</a>
+					</p>
+					<img data-src="images/logo-briar-circle.svg" width="300" height="300"/>
+					<div class="spread">
+						<a href="https://play.google.com/store/apps/details?id=org.briarproject.briar.beta">
+							<img data-src="images/badge-google-play.png" width="323" height="125"/>
+						</a>
+						<a href="https://briarproject.org/fdroid.html">
+							<img data-src="images/badge-fdroid.png" width="323" height="125"/>
+						</a>
+					</div>
+					<aside class="notes" data-markdown>
+						* [no iOS!](https://code.briarproject.org/akwizgran/briar/issues/445)
+						* source code builds reproducible (dependencies not yet)
+					</aside>
+				</section>
+
+				<!- The End -->
+				<section style="font-size: 72pt;">
+					The End
+					<br/><br/>
+					Thanks!
+				</section>
+				<section style="font-size: 72pt;">
+					Questions?
+				</section>
+
+				<!-- End Slides -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+				slideNumber: 'c/t',
+				showSlideNumber: 'speaker', // all/speaker/print
+				touch: true,
+				loop: false,
+				showNotes: true,
+				viewDistance: 3,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+</html>
