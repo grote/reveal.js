@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/custom.css">
 
 		<style>
-			.reveal .progress {
+			.reveal .progress, .reveal .controls {
 				color: #a41c31;
 			}
 		</style>
@@ -209,9 +209,7 @@
 						* Authenticated Stream Cipher with 256 bit keys
 						* Forward Secrecy (periodic key rotation due to delay tolerance, ratcheting planned)
 						* How to exchange shared secret?
-<!--
 						* [Bramble Transport Protocol](https://code.briarproject.org/akwizgran/briar-spec/blob/master/protocols/BTP.md) (BTP)
--->
 					</aside>
 				</section>
 
@@ -222,9 +220,7 @@
 						* prevents MITM attacks (also a threat)
 						* Also: Trusted peer can introduce two contacts
 						* Future: Scanning codes or entering tokens remotely
-<!--
 						* [Bramble QR Code Protocol](https://code.briarproject.org/akwizgran/briar-spec/blob/master/protocols/BQP.md) (BQP)
--->
 					</aside>
 				</section>
 
@@ -249,6 +245,9 @@
 						Key Agreement:
 					</div>
 					<p>ECDHC w/ brainpoolP256r1 &rarr; Curve25519</p>
+					<aside class="notes" data-markdown>
+						* can be changed later if algorithm is broken
+					</aside>
 				</section>
 
 				<!-- Tor -->
@@ -342,7 +341,7 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+				controls: true,
 				progress: true,
 				history: true,
 				center: true,
@@ -350,7 +349,7 @@
 				showSlideNumber: 'speaker', // all/speaker/print
 				touch: true,
 				loop: false,
-				showNotes: true, //false,
+				showNotes: true,
 				viewDistance: 3,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
