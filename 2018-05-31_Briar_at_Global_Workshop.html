@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Briar - Resilient P2P Messaging for Everyone</title>
+
+		<meta name="description" content="Resilient P2P Messaging for Everyone (34c3 presentation)">
+		<meta name="author" content="Torsten Grote">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<style>
+			.reveal .progress, .reveal .controls {
+				color: #a41c31;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Start Slides -->
+
+				<section>
+					<div style="display:flex;">
+						<div style="flex:50%">
+							<img data-src="images/logo-briar.svg" width="381" height="492"/>
+						</div>
+						<div style="flex: 50%; font-size: 120%;">
+							<p>Secure messaging, anywhere</p>
+							<br/>
+							<p>Protects metadata</p>
+							<br/>
+							<p>Works without Internet</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div style="display:flex;">
+						<div style="flex:50%;">
+							<img data-src="images/briar-screenshot-dark.png" heigth="768"/>
+						</div>
+						<div style="flex: 50%;">
+							<img data-src="images/briar-screenshot-conversation.png" heigth="80%"/>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p>
+						<a href="https://briarproject.org" style="color: white;">briarproject.org</a>
+					</p>
+					<img data-src="images/logo-briar-circle.svg" width="300" height="300"/>
+					<div class="spread">
+						<a href="https://play.google.com/store/apps/details?id=org.briarproject.briar.beta">
+							<img data-src="images/badge-google-play.png" width="323" height="125"/>
+						</a>
+						<a href="https://briarproject.org/fdroid.html">
+							<img data-src="images/badge-fdroid.png" width="323" height="125"/>
+						</a>
+					</div>
+				</section>
+
+				<!-- End Slides -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: false,
+				center: true,
+				slideNumber: 'c/t',
+				showSlideNumber: 'speaker', // all/speaker/print
+				touch: true,
+				loop: true,
+				autoSlide: 5000,
+				showNotes: false,
+				viewDistance: 3,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+
+	</body>
+</html>
