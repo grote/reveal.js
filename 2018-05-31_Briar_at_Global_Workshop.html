@@ -17,12 +17,6 @@
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 		<link rel="stylesheet" href="css/custom.css">
 
-		<style>
-			.reveal .progress, .reveal .controls {
-				color: #a41c31;
-			}
-		</style>
-
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -53,18 +47,43 @@
 					</div>
 				</section>
 
-				<section>
-					<div style="display:flex;">
+				<section data-autoslide="4000">
+					<div style="display:flex; height: 700px;">
 						<div style="flex:50%;">
-							<img data-src="images/briar-screenshot-dark.png" heigth="768"/>
+							<img data-src="images/briar-screenshot-dark.png"/>
 						</div>
 						<div style="flex: 50%;">
-							<img data-src="images/briar-screenshot-conversation.png" heigth="80%"/>
+							<img data-src="images/briar-screenshot-conversation.png"/>
 						</div>
 					</div>
 				</section>
 
 				<section>
+					<div style="display:flex;">
+						<div>
+							Server/Cloud<br/>
+							<img data-src="images/architecture-client-server.svg" width="600"/>
+						</div>
+						vs.
+						<div>
+							Peer-to-Peer<br/>
+							<br/><br/>
+							<img data-src="images/architecture-peer-to-peer.svg" width="600"/>
+						</div>
+					</div>
+				</section>
+
+				<section data-autoslide="2000">
+					<img data-src="images/logo-bluetooth.svg" width="300" height="300"/>
+					<img data-src="images/logo-wifi.svg" width="300" height="300"/>
+					<br/>
+					<img data-src="images/logo-tor.svg" width="325" height="205"/>
+				</section>
+
+				<section data-background-image="images/graph-tor.svg" data-background-size="contain" data-autoslide="2000">
+				</section>
+
+				<section data-autoslide="4000">
 					<p>
 						<a href="https://briarproject.org" style="color: white;">briarproject.org</a>
 					</p>
