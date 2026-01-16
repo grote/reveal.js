@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Open-source HSM-based signing for AOSP-based projects with limited resources: Lessons from CalyxOS signing redesign</title>
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	<style>
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				text-transform: none !important; /* Use !important if needed to override theme */
+		}
+		.reveal li {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<!-- Slides are separated by three dashes (the default) -->
+		<section data-markdown data-background-image="images/CalyxOS.svg" data-background-position="bottom left"
+						 data-background-size="25%">
+			<script type="text/template">
+				### HSM signing for Free Software projects:
+
+				#### Lessons from CalyxOS signing redesign
+
+				---
+
+				## Why use an HSM? (1)
+				* code signing verifies origin of software
+				<!-- .element: class="fragment" -->
+				* private key needs to be stored somewhere
+				<!-- .element: class="fragment" -->
+				* problem: if someone copies key, they can make signatures forever, no stopping them
+				<!-- .element: class="fragment" -->
+				* if you find out, only option is to change keys
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Why use an HSM? (2)
+				* HSM stores key in hardware storage, can't copy it
+				* caveat: powerful attackers with physical access
+				<!-- .element: class="fragment" -->
+				* use-case: auto-signing with CI server
+				<!-- .element: class="fragment" -->
+				* if hacked, restore secure state and signing stops
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Defining criteria
+				* YubiHSM 2, Nitrokey NetHSM, Amazon Cloud HSM, and Entrust nShield
+
+				---
+
+				## Key Wrapping
+
+				* storage too small too for all signing keys
+				<!-- .element: class="fragment" -->
+				* solution: key wrapping
+				<!-- .element: class="fragment" -->
+				* keys stored outside HSM encrypted and can get re-imported when needed
+				<!-- .element: class="fragment" -->
+				* wrap key encrypts and decrypts, stored securely on the HSM
+				<!-- .element: class="fragment" -->
+				* signing keys never in plaintext outside of HSM
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Backup
+
+				* what if HSM breaks or gets stolen?
+				* signing keys are already encrypted, get backed up normally
+				<!-- .element: class="fragment" -->
+				* avoid plaintext backup of wrap key, because re-introduces all problems
+				<!-- .element: class="fragment" -->
+				* best option: Shamir's Secret Sharing (1979)
+				<!-- .element: class="fragment" -->
+				* wrap key gets split up into shards, requires m of n shards for recovery
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Key provisioning ceremony
+
+				---
+
+				## PKCS#11
+
+				* "Cryptoki" a standard and C interface to let software communicate with HSM
+				* all tools involved in Android signing already support it
+				<!-- .element: class="fragment" -->
+				* however, can't sign builds using PKCS#11 out of the box
+				<!-- .element: class="fragment" -->
+				* complex signing process: apps, apexes, partitions
+				<!-- .element: class="fragment" -->
+				* different tools: apksigner, signapk and openssl
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Hooking it all up
+
+				* all tools need to get hooked up in different ways, solving different bugs
+				* apksigner doesn't close PKCS#11 sessions -> DoS
+				<!-- .element: class="fragment" -->
+				* signapk buggy, replaced with apksigner
+				<!-- .element: class="fragment" -->
+				<br/><br/>
+				* perf: apksigner keystore loading
+				<!-- .element: class="fragment" -->
+				* perf: disabled v1 app signatures
+				<!-- .element: class="fragment" -->
+
+				---
+
+				## Auditing
+
+
+			</script>
+		</section>
+	</div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script>
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+		slideNumber: 'c/t',
+		showSlideNumber: 'speaker', // all/speaker/print
+		touch: true,
+		loop: false,
+		showNotes: true,
+		viewDistance: 3,
+		pdfSeparateFragments: false,
+
+		plugins: [ RevealMarkdown, RevealNotes ]
+	});
+</script>
+</body>
+</html>
